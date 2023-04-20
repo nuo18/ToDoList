@@ -17,6 +17,9 @@ class App(customtkinter.CTk):
 
         self.task_list = customtkinter.CTkTextbox(self, width=300,state='disabled')
         self.task_list.grid(row=1, column=0, columnspan=2, padx=20, pady=10)
+        
+        self.checkbox = customtkinter.CTkCheckBox(self, text='Do something', onvalue="on", offvalue="off")
+        self.checkbox.grid(row=2, column=0, padx=20, pady=10)
 
         # load tasks from file
         self.load_tasks()
