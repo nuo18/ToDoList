@@ -1,5 +1,5 @@
 import customtkinter
-
+# playing around with customtkinter
 TASK_FILE = 'tasks.txt'
 
 class App(customtkinter.CTk):
