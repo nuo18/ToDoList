@@ -6,7 +6,7 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
         self.geometry("600x500")
-        self.title("ToDo List")
+        self.title("To Do List")
 
         # add widgets to app
         self.task_entry = customtkinter.CTkEntry(self, width=300)
@@ -26,8 +26,13 @@ class App(customtkinter.CTk):
 
     # add methods to app
     def add_task(self):
-        task = self.task_entry.get()
-        self.task_entry.delete(0, customtkinter.END)
+        self.clear()
+
+        # Add a back button (which goes back to the todo list)
+        # Create a window that contains task name, importance, ..., and due date
+        # Add a confirm button
+        # Confirm button will add the task to the tasks.txt file with all the other information
+        # Afterwards user is redirected back to todo list
 
         # append task to task file
         with open(TASK_FILE, 'a') as f:
@@ -51,6 +56,13 @@ class App(customtkinter.CTk):
 
         except FileNotFoundError:
             pass
+
+    def clear(self):
+        for i in self.grid_slaves():
+            i.destroy
+
+        for i in self.pack_slaves():
+            i.destroy()
 
 
 app = App()
